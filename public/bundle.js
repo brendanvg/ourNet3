@@ -3148,8 +3148,8 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 
-}).call(this,{"isBuffer":require("../../../../../../../../../../usr/local/lib/node_modules/watchify/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../../../../../../../../../../usr/local/lib/node_modules/watchify/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":186}],15:[function(require,module,exports){
+}).call(this,{"isBuffer":require("../../../../../../../../../../usr/local/lib/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js")})
+},{"../../../../../../../../../../usr/local/lib/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":186}],15:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
@@ -34545,8 +34545,8 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 
-}).call(this,{"isBuffer":require("../../../../../../../../../../../../usr/local/lib/node_modules/watchify/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../../../../../../../../../../../../usr/local/lib/node_modules/watchify/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":186}],157:[function(require,module,exports){
+}).call(this,{"isBuffer":require("../../../../../../../../../../../../usr/local/lib/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js")})
+},{"../../../../../../../../../../../../usr/local/lib/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":186}],157:[function(require,module,exports){
 arguments[4][5][0].apply(exports,arguments)
 },{"dup":5}],158:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
@@ -36382,7 +36382,7 @@ function endWritable(stream, state, cb) {
 }).call(this,require('_process'))
 },{"./_stream_duplex":161,"_process":187,"buffer":180,"core-util-is":165,"inherits":166,"stream":210}],165:[function(require,module,exports){
 arguments[4][156][0].apply(exports,arguments)
-},{"../../../../../../../../../../../../usr/local/lib/node_modules/watchify/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":186,"dup":156}],166:[function(require,module,exports){
+},{"../../../../../../../../../../../../usr/local/lib/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":186,"dup":156}],166:[function(require,module,exports){
 arguments[4][5][0].apply(exports,arguments)
 },{"dup":5}],167:[function(require,module,exports){
 arguments[4][158][0].apply(exports,arguments)
