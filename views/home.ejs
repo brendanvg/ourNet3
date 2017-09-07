@@ -1,7 +1,7 @@
 <% if (!user) { %>
-	<p>Welcome! Please <a href="/login">log in</a>.</p>
+	<h1>Welcome! Please <a href="/login">log in</a>.</h1>
 <% } else { %>
-	<p>Hello, <%= user.username %>. View your <a href="/profile">profile</a>.</p>
+	<h1>Hello, <%= user.username %>. View your <a href="/profile">profile</a>.</h1>
 
-	<p> Go to your lifeNet organizer <a href='/home2'> home page </a>
+	<h2> Go to your lifeNet organizer <a href='/home2'> home page </a>
 <% } %>

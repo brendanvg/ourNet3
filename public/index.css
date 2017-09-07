@@ -1,3 +1,17 @@
+@media only screen and (max-width: 40em) {
+  #netLink3 {
+  	display: block !important;
+	position: relative !important;
+  }
+
+}
+
+#netLink3 {
+	position:relative !important;
+/*	display: none !important;
+*/
+}
+
 #cy {
 /*	width:80%;
 */	height:80%;

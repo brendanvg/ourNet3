@@ -1,4 +1,4 @@
-Version 5.1
+Version 5.12
 
 type: nvm use 4.4.3 to address the collect Unexpected token > error
 
