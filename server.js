@@ -25,6 +25,20 @@ var server = app.listen(3000, function(){
 var path = require('path')
 
 
+//DATA STRUCTURES
+//netMembersDb: var nodeObj = {}
+	//{key: netName, value: netUser}
+	//currently only inputs the user who made the net
+
+//netContentsDb: 
+//{key: netName, value: nodeObj}
+//var nodeObj = {}
+//            {nodeObj.nodeName = name;
+//            nodeObj.group = groups;
+  //          nodeObj.position=initPosition;
+    //        nodeObj.edges = {in:[],out:[]}
+
+
 //BETTER DATA STRUCTURE 
 //key: network, 
 //value is an array of objects, each object is a node with 
@@ -242,6 +256,20 @@ app.get('/login',
   
 
 
+app.post('/addInfoToNodeInfoForm',
+  passport.authenticate('local', {failureRedirect:'/login'}),
+  function(req,res,next){
+    nodeInfoDb.get(req.body.name, function(err,value){
+	var noteArray= value
+	noteArray.push(req.body.note)
+  
+	nodeInfoDb.put(req.body.name, noteArray)
+	  
+    })
+  
+  }
+);
+
 app.post('/login', 
   passport.authenticate('local', { failureRedirect: '/login'}),
   function(req, res, next) {
@@ -378,14 +406,14 @@ app.get('/nodeInfo/:currentNet/:nodeName', function(req,res, next){
   var nodeName = req.params.nodeName
   
   console.log('hiii', currentNet, 'annnd', nodeName)
-  db.get(currentNet, function(err,value){
+  netContentsDb.get(currentNet, function(err,value){
     
     if (err) console.log(err)
     
     else {
       value.forEach(function(arrayItem){
-        if (arrayItem === nodeName) {
-          res.render('nodeInfoForm', {pageContent:arrayItem.group})
+        if (arrayItem.nodeName === nodeName) {
+          res.render('nodeInfoForm', {nodeName:nodeName,currentNet:currentNet,pageContent:arrayItem.group})
         }
       })
     }
@@ -633,8 +661,7 @@ app.post('/addNode', cors(corsOption), function(req,res,next){
     var name = params.nodeName
     var groups = params.nodeGroup 
     var initPosition = params.position
-
-    //TODO: parse nets to see if we're adding multiple nets or just one
+    var note = [params.note]
 
     netContentsDb.get(net, function(err,value){
       if (err) {
@@ -645,15 +672,12 @@ app.post('/addNode', cors(corsOption), function(req,res,next){
             nodeObj.group = groups;
             nodeObj.position=initPosition;
             nodeObj.edges = {in:[],out:[]}
+	 
 
           arrayOfObjects.push(nodeObj);
           console.log('xxx', nodeObj, arrayOfObjects)
-          // array.push([])
-          // var inEdges= array[0]
-          // var outEdges=array[1]
-          // outEdges.push('!'+params.secondNode)
 
-        netContentsDb.put(net, arrayOfObjects, function(err){
+          netContentsDb.put(net, arrayOfObjects, function(err){
             if(err) return console.log(err)
             else {
               netContentsDb.get(net, function(err,value){
@@ -661,8 +685,8 @@ app.post('/addNode', cors(corsOption), function(req,res,next){
               })
             }
           })
-        }
         
+	}
         else {console.log(err)}
 
       }
@@ -674,7 +698,6 @@ app.post('/addNode', cors(corsOption), function(req,res,next){
           nodeObj.group = groups
           nodeObj.position=initPosition
           nodeObj.edges = {in:[],out:[]}
-
 
         arrayOfObjects2.push(nodeObj)
         netContentsDb.put(net, arrayOfObjects2, function(err){
@@ -688,6 +711,25 @@ app.post('/addNode', cors(corsOption), function(req,res,next){
 
       }  
     })
+
+    nodeInfoDb.get(node, function(err,value){
+	if(err){
+	  if (err.notFound){
+	    nodeInfoDb.put(node, note, function(err){
+	    })
+	  }
+	  else{
+	    console.log(err)
+ 	  }
+	}
+	else{
+	  var existingNotesArray= value
+	  existingNotesArray.push(note)
+	  nodeInfoDb.put(node, existingNotesArray, function(err){
+	    if(err) {console.log('noo',err)}
+	    else { console.log('hurray!')}
+	  }) 
+	}
   })
   res.end()
 })
@@ -715,9 +757,6 @@ app.post('/addEdge', cors(corsOption), function(req,res,next){
       var updatedValue = value
       console.log('this is my original updated value', updatedValue, 'and', typeof updatedValue)
 
-
-/*      value.forEach(function(arrayItem){
-*/      
       for (var i = 0; i < value.length; i++) {
         if (value[i].nodeName === params.firstNode){
 
@@ -784,4 +823,6 @@ app.post('/savePositions', cors(corsOption), function(req,res,next){
     })  
   })
   res.end()
+})
+
 })

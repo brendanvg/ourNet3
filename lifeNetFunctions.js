@@ -172,6 +172,7 @@ function initialize(){
   	function createNewNode(){
   		var name= document.getElementById('nodeName').value
   		var group = document.getElementById('nodeGroup').value
+		var note = document.getElementById('note').value
   		var initPosition = {x: 200, y: 200}
   		var network = document.getElementById('currentNet').value
   		console.log('whooop',network)
@@ -182,7 +183,7 @@ function initialize(){
   		if (network){
   			console.log('doit!')
   			var url = 'http://www.ourlifenet.com/addNode'
-			var body = {network: network, nodeName: name, nodeGroup: group, position: initPosition}
+			var body = {network: network, nodeName: name, nodeGroup: group, position: initPosition, note:note}
 		  	postJson(url, body, function (err, result) {
 			})
 			addNode(name,group)	
