@@ -1,7 +1,12 @@
 <h1><%= nodeName %></h1>
 
-<% if (!pageContent) { %>
-        <h4>No Info yet...Add some!</h4>
+<h4>Group: <%= group %></h4>
+<div id= "pageContent">
+	<p><%-pageContent%></p>
+
+</div>
+
+<div id= 'nodeInfoForm'>
 	<form action="/addInfoToNodeInfoForm" method="post">
 	<input type="hidden" value="<%= nodeName %>" name="name"/>
 	<input type='hidden' value='<%= currentNet%>' name='net'/>
@@ -15,10 +20,7 @@
 	</div>
 
 	</form>
-		
+</div>		
 
 
-<% } else { %>
-        <h4>Group: <%= pageContent%></h1>
 
-<% } %>
