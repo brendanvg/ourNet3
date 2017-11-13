@@ -19,14 +19,8 @@ cy.style().selector('node:selected').style('background-color', 'magenta')
 //Event Listeners
 
 //at network start listeners
-var postNewNet= document.getElementById('postNewNet')
-postNewNet.addEventListener('click',lnf.postNewNet)
 
-var loadNets = document.getElementById('loadNets')
-loadNets.addEventListener('click',lnf.loadNets)
 
-var checkDb= document.getElementById('checkDb')
-checkDb.addEventListener('click',lnf.checkDb)
 
 function onIndexLoad () {
   console.log('loaaading!')
@@ -38,11 +32,7 @@ onIndexLoad()
 var logout = document.getElementById('logout')
 logout.addEventListener('click', lnf.logout)
 
-var loadGroups=document.getElementById("loadGroups")
-loadGroups.addEventListener("click", lnf.loadGroups)
 
-var loadEdges2=document.getElementById("loadEdges2")
-loadEdges2.addEventListener("click", lnf.loadEdges)
 
 var savePositions=document.getElementById('savePositions')
 savePositions.addEventListener('click', lnf.savePositions)
@@ -56,14 +46,27 @@ addNet1.addEventListener('click', lnf.addNet, lnf.loadNets)
 // var enterChat = document.getElementById('enterChat')
 // enterChat.addEventListener('click', lnf.enterChat)
 
-var clear = document.getElementById('clear')
-clear.addEventListener('click', lnf.clearAllNodes)
 
 $('.groups').click(function(){
   console.log('he')
 })
 
+var e = document.getElementById('parent');
+e.onmouseover = function() {
+  document.getElementById('popup').style.display = 'block';
+}
+e.onmouseout = function() {
+  document.getElementById('popup').style.display = 'none';
+}
 
+
+var description1 = document.getElementById('createCommunityDescription')
+description1.onmouseover=function() {
+  document.getElementById('commPopup').style.display='block'
+}
+description1.onmouseout=function(){
+  document.getElementById('commPopup').style.display='none'
+}
 /*window.onload=function(){*/
 //nClicked=false, first click, true,second click
 var nClicked = false;

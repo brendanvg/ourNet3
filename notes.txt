@@ -1,0 +1,5 @@
+float the navbar transparently over the carousel images
+
+diff. modals.....
+http://getbootstrap.com/docs/4.0/components/modal/#varying-modal-content
+

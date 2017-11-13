@@ -54,30 +54,7 @@ function initialize(){
   	
   	function loadNets(){
   		console.log('fuckoff')
-  		/*var netsValue = hyperquest('http://www.ourlifenet.com/loadNets')
-  		console.log('myyyy netsValue: ', netsValue)
-		var y = JSON.parse(netsValue)
-
-		console.log('yyyyy: ', y)
-		for (i = 0; i<y.length; i++){
-			console.log('yep',y[i])
-			var groupLink = '<tr><button class = "nets" id="'+y[i]+'">'+y[i]+'</button><br>'
-		
-			listOfGroupLinks += groupLink
-			document.getElementById('currentNet').value = y[i]
-		}
-		var parent= document.getElementById('netLinkContent')
-		parent.innerHTML=listOfGroupLinks
-
-
-		var nets1 = document.getElementsByClassName('nets')
-
-		for(var i = 0; i < nets1.length; i++)
-			{
-				console.log('loadnetshmmm', nets1.item(i));
-				nets1.item(i).addEventListener('click',graphSpecificNet)
-		 }
-	}*/
+  
 
 		console.log('almostfixin')
 
@@ -99,7 +76,7 @@ function initialize(){
 				console.log('hehe')
 				for (i = 0; i<netlist.length; i++){
 					console.log('yep',netlist[i])
-					var groupLink = '<tr><button class = "nets active specialButton" aria-pressed="true" data-toggle="button" id="'+netlist[i]+'">'+netlist[i]+'</button><br>'
+					var groupLink = '<tr><button class = "nets active specialButton" aria-pressed="true" data-toggle="button" id="'+netlist[i]+'">'+netlist[i]+'</button>'
 				
 					listOfGroupLinks += groupLink
 /*					document.getElementById('currentNet').value = netlist[i]

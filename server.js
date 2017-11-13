@@ -11,6 +11,7 @@ var accessDb = levelup('./accessDb3')
 var groupsDb = levelup('./groupsFlintDb3')
 var netsDb = levelup('./netsDb5')
 var netListDb= levelup('./netListDb5')
+var nodeInfoDb = levelup('./nodeInfoDb', {valueEncoding:'json'})
 
 var body = require('body/any')
 var h = require('hyperscript')
@@ -256,15 +257,14 @@ app.get('/login',
   
 
 
-app.post('/addInfoToNodeInfoForm',
-  passport.authenticate('local', {failureRedirect:'/login'}),
+app.post('/addInfoToNodeInfoForm',cors(corsOption),
   function(req,res,next){
     nodeInfoDb.get(req.body.name, function(err,value){
 	var noteArray= value
 	noteArray.push(req.body.note)
   
 	nodeInfoDb.put(req.body.name, noteArray)
-	  
+	res.redirect('/nodeInfo/'+req.body.net+'/'+req.body.name) 
     })
   
   }
@@ -405,17 +405,19 @@ app.get('/nodeInfo/:currentNet/:nodeName', function(req,res, next){
   var currentNet = req.params.currentNet
   var nodeName = req.params.nodeName
   
-  console.log('hiii', currentNet, 'annnd', nodeName)
-  netContentsDb.get(currentNet, function(err,value){
-    
+  console.log('lucky7','hiii', currentNet, 'annnd', nodeName)
+  //used to be: netContentsDb.get(currentNet, function(err,value){
+  nodeInfoDb.get(nodeName, function(err,value){  
     if (err) console.log(err)
     
     else {
-      value.forEach(function(arrayItem){
-        if (arrayItem.nodeName === nodeName) {
-          res.render('nodeInfoForm', {nodeName:nodeName,currentNet:currentNet,pageContent:arrayItem.group})
-        }
-      })
+	console.log('woloppy', value)
+	var firstArrayElement = value.shift()
+       
+	var newValue= value.toString().split(',').join('<br/>')
+	res.render('nodeInfoForm', {nodeName:nodeName,currentNet:currentNet,group:firstArrayElement,pageContent:newValue})
+        
+      
     }
   })
 })
@@ -661,7 +663,7 @@ app.post('/addNode', cors(corsOption), function(req,res,next){
     var name = params.nodeName
     var groups = params.nodeGroup 
     var initPosition = params.position
-    var note = [params.note]
+    var note = [groups, params.note]
 
     netContentsDb.get(net, function(err,value){
       if (err) {
@@ -712,10 +714,10 @@ app.post('/addNode', cors(corsOption), function(req,res,next){
       }  
     })
 
-    nodeInfoDb.get(node, function(err,value){
+    nodeInfoDb.get(name, function(err,value){
 	if(err){
 	  if (err.notFound){
-	    nodeInfoDb.put(node, note, function(err){
+	    nodeInfoDb.put(name, note, function(err){
 	    })
 	  }
 	  else{

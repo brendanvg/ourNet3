@@ -1,60 +1,44 @@
-
 <!-- once protected  -->
 <DOCTYPE html>
 <html>
   <head>
     <link rel='stylesheet' href='index.css'/>
-    <script src= "./cytoscape.min.js"></script>
-    
+    <script src= "./cytoscape.min.js"></script>   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-
-   <script src="bootstrap.min.js"></script>
-
-
-</head>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="bootstrap.min.js"></script>
+  </head>
 <body>
  
-
-<nav class="navbar navbar-dark bg-primary">
   <div class='row'>
-    <div class='col-xs-2 offset-4'><a href="/logout"><button id='logout'>Log Out</button></a></div>
-
+    <div class='col-xs-12'>
+      <nav class="navbar navbar-dark bg-primary">   
+        <a href="/logout"><button id='logout'>Log Out</button></a>
+      </nav>
+    </div>
   </div>
 
-</nav>
 
-
-
-  <div id = 'container'>
-
-
-
-
-<div id="carousel-example-generic">
-    <div class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
+  <div class='row'>
+    <div class='col-xs-12'>
+      <div id="carousel-example-generic">
+        <div class="carousel slide">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          </ol>
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
             <div class="item active">
                 <img src="tree3.jpg" alt="Slide 1" />
                 <div class="carousel-caption">
@@ -78,171 +62,156 @@
                     <p id='subtitle3'>Connect to Grow Support</p>
                 </div>
             </div>
-</div>
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                <span class="icon-prev"></span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                <span class="icon-next"></span>
-            </a>
+          </div>
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+              <span class="icon-prev"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+              <span class="icon-next"></span>
+          </a>
+        </div>     
+      </div>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-xs-12'>
+
+      <div class="jumbotron">
+        <h1 class="display-2">LifeNet</h1>
         
+        <div id='summary'>
+          <h3 class="display-3">In Community for a Better Life...</h3>
+          <p>OurLifeNet is a tool to help people accomplish big dreams by strategically networking the right people and resources around them.  It's also a tool that lets people to create and sustain a more vibrant community life, so that they can share what they can spare and so no one will have to face life's bills or tasks alone.</p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          </p>
+        </div>
+
+      </div>  
+
     </div>
+  </div>
 
 
-    <input id="currentNet" value="" type="hidden">
-    <h1>LifeNet</h1>
-    <h2>We give eachother life.</h2>
-
- 
-
-
-
-
-<div class="row">
-  <div class="col-xs-4">
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h4 class="card-title">Step 1: Start A New Network Communityt</h4>
-        <p class="card-text">Each Network should be centered around a common Goal everyone wants to see accomplished.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="card">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">Step 1: Start A New Network Community</h4>
+          <p class="card-text">Each Network should be centered around a common goal everyone wants to see accomplished.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-4">
+       <div class="card">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">Step 2: Add Nodes to the Network </h4>
+          <p class="card-text">A node can be an ally with resources to help accomplish the community's goal or a target connected to other targets who have resources but are standing in the way of the community making the goal a reality.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="card">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">Step 3: Connect Nodes and Invite Others</h4>
+          <p class="card-text">Connect nodes to see how resources can be linked to needs or see who needs to be more connected or which node is important. Connect by clicking two nodes.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-xs-4">
-     <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h4 class="card-title">Special title treatment</h4>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-xs-4">
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h4 class="card-title">Special title treatment</h4>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
- 
-<div class='row'>
-  <div class='col-xs-3'><h1>Communities I'm a Part of</h1></div>
-</div>
-
-<div class='row visible-phone visible-tablet' id='netLink3'>
-  <div class='col-xs-12'>
-    <div id='netLinkContent'></div>
-  </div>
-</div>
-
-
-
-      <div class='col-xs-9' id="cy"></div>
-
    
-<div class= 'row'>
 
-  <div class= 'col-xs-3'>
 
-  <div id="parent">
-<div id="popup" style="display: none">some text here!</div>
-</div>
+  <div class= 'row'>
+    <div class= 'col-xs-3'>
+      <button id='savePositions'>Save Positions</button>
+    </div>
 
-  <div id ="createCommunityDescription">
-    <div id='commPopup' style="display: none"> Step 1: Start a New Network Community</div>
-    <div data-role="main" class="ui-content">
-        <a href="#myPopup1" data-toggle="tooltip" data-placement='left' title='Step 1:Start a New Network Community' data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left">Create a Community </a>     
-	
-      <div data-role="popup" id="myPopup1" class="ui-content" style="min-width:250px;">
+    <div class = 'col-xs-3'>
+      <a href="chat.html"><button id= 'enterChat'>Enter Chat</button></a>
+    </div>
+
+    <div class ='col-xs-3'>
+      <div id="parent">
+        <div id="popup" style="display: none">some text here!
+        </div>
+      </div>
+
+      <div id ="createCommunityDescription">
+        <div id='commPopup' style="display: none"> Step 1: Start a New Network Community
+        </div>
+        <div data-role="main" class="ui-content">
+          <a href="#myPopup1" data-toggle="tooltip" data-placement='left' title='Step 1:Start a New Network Community' data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left">Create a Community </a>     
+          
+          <div data-role="popup" id="myPopup1" class="ui-content" style="min-width:250px;">
             <p>Node ID</p>
             <input id='netName' type='text' placeholder='Community Name' required></input>
             <input id='netDescription' type='text' placeholder='Goal of the Community' required></input>
             <input id='invitePeople' type='text' placeholder='Invite People' required></input>
             <button id= 'addNet1'>Add Net</button>
-
+          </div>
+            
           <script type='text/javascript'>
             $('#addNet1').on('click', function(event){
-              event.preventDefault()
-            })
-
+              event.preventDefault()})
             $('createCommunityDescription').onmouseover = function() {
-              document.getElementById('commPopup').style.display = 'block';
-            }
+              document.getElementById('commPopup').style.display = 'block';}
             $('createCommunityDescription').onmouseout = function() {
-  document.getElementById('commPopup').style.display = 'none';
-}
-
+              document.getElementById('commPopup').style.display = 'none';}
           </script>
-      </div>
-    </div>
-  </div>
-
-    <div data-role="main" class="ui-content">
-      <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left">Add Node</a>
-      <div data-role="popup" id="myPopup" class="ui-content" style="min-width:250px;">
-        
-        <p>Node ID</p>
-        <input id='nodeName' type='text' placeholder='Node Name'required></input>
-        <input id='nodeGroup' type='text' placeholder='Node Group' required></input>
-        <input id='note' type ='text' placeholder='Note About Node'></input>
-	      <button id= 'postJson1'>Add Node</button>
-
-      <script type='text/javascript'>
-        $('#postJson1').on('click', function(event){
-          event.preventDefault()
-        })
-      </script>
+        </div>
       </div>
     </div>
 
-    <button id='graphAllNodes2'>Graph All Nodes</button> 
-    <button id='loadEdges2'>Load Edges</button> 
-    <button id='savePositions'>Save Positions</button>
-    <button id = 'clear'>Clear Window </button>
-    <button id = 'loadGroups'>Load Groups </button>
-    <a href="chat.html"><button id= 'enterChat'>Enter Chat</button></a>
-  
-    <div id='groupLinkContent'></div>
-   <!--<div id-'netLinkContent'></div>
--->
-
-
-<button id='checkDb'>checkDb</button>
-
-    <div id='createNetworkDiv'>
-          <button id= 'postNewNet'>Create a Community</button>
+    <div class='col-xs-3'>
+      <div data-role="main" class="ui-content">
+        <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left">Add Node</a>
+        <div data-role="popup" id="myPopup" class="ui-content" style="min-width:250px;">
+          <p>Node ID</p>
+          <input id='nodeName' type='text' placeholder='Node Name'required></input>
+          <input id='nodeGroup' type='text' placeholder='Node Group' required></input>
+          <input id='note' type ='text' placeholder='Note About Node'></input>
+  	      <button id= 'postJson1'>Add Node</button>
+          <script type='text/javascript'>
+            $('#postJson1').on('click', function(event){
+              event.preventDefault()})
+          </script>
+        </div>
+      </div>
     </div>
 
-    <button type='hidden' id = 'loadNets'>Load Communities </button>
+  </div>
+
+  <div class='row'>
+    <div class='col-xs-12'>
+      <input id="currentNet" value="">
+    </div>
+  </div>
+
+  <div class='row'>
+
+    <div class='col-xs-3'>
+      <h1>Communities I'm a Part of</h1>
+      <div id='netLinkContent'></div>
+    </div>
+
+    <div class='col-xs-8' id="cy">
+    </div>
 
   </div>
 
-<!--   <div class='col-xs-9' id="cy"></div>
- -->  </div>
 
-</div>
-
-  </div>
-
-
-  <script src='bundle.js'>
-  </script>
-   <script src="bootstrap.min.js"></script>
-        <script>
-            $("#carousel-example-generic").carousel();
-        </script> 
+  <script src='bundle.js'></script>
+  <script src="bootstrap.min.js"></script>
+  <script>$("#carousel-example-generic").carousel();</script> 
 
   </body>
 </html>
