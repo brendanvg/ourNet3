@@ -51,22 +51,22 @@ $('.groups').click(function(){
   console.log('he')
 })
 
-var e = document.getElementById('parent');
-e.onmouseover = function() {
-  document.getElementById('popup').style.display = 'block';
-}
-e.onmouseout = function() {
-  document.getElementById('popup').style.display = 'none';
-}
+// var e = document.getElementById('parent');
+// e.onmouseover = function() {
+//   document.getElementById('popup').style.display = 'block';
+// }
+// e.onmouseout = function() {
+//   document.getElementById('popup').style.display = 'none';
+// }
 
 
-var description1 = document.getElementById('createCommunityDescription')
-description1.onmouseover=function() {
-  document.getElementById('commPopup').style.display='block'
-}
-description1.onmouseout=function(){
-  document.getElementById('commPopup').style.display='none'
-}
+// var description1 = document.getElementById('createCommunityDescription')
+// description1.onmouseover=function() {
+//   document.getElementById('commPopup').style.display='block'
+// }
+// description1.onmouseout=function(){
+//   document.getElementById('commPopup').style.display='none'
+// }
 /*window.onload=function(){*/
 //nClicked=false, first click, true,second click
 var nClicked = false;
@@ -85,6 +85,8 @@ function tapOnEdges(){
     }
     else {
       edgeClicked=true
+            window.open('http://www.ourlifenet.com/edgeInfo/'+evt.cyTarget.id(), 'Edge Info', 'height= 470, width=470, return false') 
+
     }
   })
 }

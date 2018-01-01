@@ -30,6 +30,7 @@ function initialize(){
 		enterChat: enterChat,
 		checkDb:checkDb,
 		tapOnNodes: tapOnNodes,
+		tapOnEdges: tapOnEdges,
 		logout: logout
   	}
 
@@ -239,6 +240,7 @@ function initialize(){
 		console.log('jackpot', stream3)
 		loadNodes(stream3)
 		tapOnNodes()
+		tapOnEdges()
 		loadEdges()	
 	}
 
@@ -252,21 +254,17 @@ function tapOnNodes () {
 	//second click
     if (nClicked) {
       nClicked = false
-  	  // console.log('byee')
       secondNode = evt.target
       var firstNodeId= firstNode.id()
       var secondNodeId = secondNode.id()
-      // console.log('c',firstNodeId, 'd',secondNodeId)
       if (secondNodeId === firstNodeId){
         console.log('clicked myself')
         var currentNet= document.getElementById('currentNet').value
         window.open('http://www.ourlifenet.com/nodeInfo/'+currentNet+'/'+evt.target.id(), 'Node Info', 'height= 470, width=470, return false') 
       }
       else {
-        // console.log('nodes2',firstNodeId, secondNodeId)
         console.log('wwooooo!!!!!!!!!!!!!!!!!!!!')
   	   addNewEdge(firstNodeId, secondNodeId)  
-      // gnf.addDirectedEdge(firstNodeId, secondNodeId)
       }
     }
     //first click
@@ -280,6 +278,32 @@ function tapOnNodes () {
     }
   })
 }
+
+function tapOnEdges () {
+  var nClicked = false;
+	var firstNode = {}
+	var secondNode = {}
+	var edgeClicked=false;
+  cy.on('tap', 'edge', function(evt){
+    console.log('tappin!!!', evt.target,'or', evt.cyTarget,'heee', evt.target.id(),'mmmm', evt.target.id)
+	//second click
+    if (nClicked) {
+      nClicked = false
+      
+        var currentNet= document.getElementById('currentNet').value
+        window.open('http://www.ourlifenet.com/nodeInfo/'+currentNet+'/'+evt.target.id(), 'Node Info', 'height= 470, width=470, return false') 
+    
+      
+    }
+    //first click
+    else 
+    {
+      nClicked=true
+      // firstNodeId = firstNode.id()
+    }
+  })
+}
+
 
 	function graphAllNodes(){
 	  	console.log('woooo')

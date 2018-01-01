@@ -12,7 +12,7 @@ var groupsDb = levelup('./groupsFlintDb3')
 var netsDb = levelup('./netsDb5')
 var netListDb= levelup('./netListDb5')
 var nodeInfoDb = levelup('./nodeInfoDb', {valueEncoding:'json'})
-
+var edgeInfoDb = levelup('./edgeInfoDb', {valueEncoding:'json'})
 var body = require('body/any')
 var h = require('hyperscript')
 var hyperstream = require('hyperstream')
@@ -270,6 +270,20 @@ app.post('/addInfoToNodeInfoForm',cors(corsOption),
   }
 );
 
+app.post('/addInfoToEdgeInfoForm',cors(corsOption),
+  function(req,res,next){
+    nodeInfoDb.get(req.body.name, function(err,value){
+  var noteArray= value
+  noteArray.push(req.body.note)
+  
+  nodeInfoDb.put(req.body.name, noteArray)
+  res.redirect('/nodeInfo/'+req.body.net+'/'+req.body.name) 
+    })
+  
+  }
+);
+
+
 app.post('/login', 
   passport.authenticate('local', { failureRedirect: '/login'}),
   function(req, res, next) {
@@ -416,6 +430,28 @@ app.get('/nodeInfo/:currentNet/:nodeName', function(req,res, next){
        
 	var newValue= value.toString().split(',').join('<br/>')
 	res.render('nodeInfoForm', {nodeName:nodeName,currentNet:currentNet,group:firstArrayElement,pageContent:newValue})
+        
+      
+    }
+  })
+})
+
+
+app.get('/edgeInfo/:currentNet/:edgeName', function(req,res, next){
+  var currentNet = req.params.currentNet
+  var edgeName = req.params.edgeName
+  
+  console.log('lucky7','hiii', currentNet, 'annnd', edgeName)
+  //used to be: netContentsDb.get(currentNet, function(err,value){
+  edgeInfoDb.get(nodeName, function(err,value){  
+    if (err) console.log(err)
+    
+    else {
+  console.log('woloppy', value)
+  var firstArrayElement = value.shift()
+       
+  var newValue= value.toString().split(',').join('<br/>')
+  res.render('nodeInfoForm', {nodeName:nodeName,currentNet:currentNet,group:firstArrayElement,pageContent:newValue})
         
       
     }
