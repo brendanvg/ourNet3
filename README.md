@@ -6,11 +6,11 @@ Out of all my "net" apps, this is the one that actually works/ is most polished 
 
 Getting Started: 
 
-  type: 'nvm use 4.4.3' to address the collect Unexpected token > error
+  run 'nvm use 4.4.3' to address the collect Unexpected token > error
 
-  type: npm install (to automatically install all dependencies from package.json)
+  run npm install (to automatically install all dependencies from package.json)
 
-  type: node server.js!
+  run node server.js
 
 if need be
   use the following when using the forever process pm2 - which will run it for the 4.4.3 version of node:
